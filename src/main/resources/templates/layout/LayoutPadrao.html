@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Pagina Default</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta name="author" content="" />
+
+        <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/app.css}" />
+
+        <script th:src="@{/vendor/Chart.min.js}"></script>
+    </head>
+    <body>
+        <div class="page page-sticky-sidebar">
+            <div class="app-header" style="display: none; visibility: hidden;">
+                <div th:replace="layout/fragments/navbar :: navbar"></div>
+            </div>
+
+            <div class="position-relative d-flex flex-row flex-fill page-wrapper">
+                <div th:replace="layout/fragments/sidebar :: sidebar"></div>
+                <div class="page-overlay" style="visibility:hidden;opacity:0"></div>
+
+                <div class="position-relative d-flex flex-column flex-fill page-content" style="min-width:0">
+
+                    <div th:replace="layout/fragments/topbar :: topbar"></div>
+
+                    <div layout:fragment="main"></div>
+
+                    <div th:include="layout/fragments/footer :: footer"></div>
+                </div>
+            </div>
+        </div>
+
+        <script th:src="@{/vendor/jquery-3.4.1.slim.min.js}"></script>
+        <script th:src="@{/vendor/bootstrap.bundle.min.js}"></script>
+        <script th:src="@{/vendor/lottie.js}"></script>
+
+        <script th:src="@{/js/app.js}"></script>
+
+        <script th:src="@{/js/dashboard.js}"></script>
+    </body>
+</html>

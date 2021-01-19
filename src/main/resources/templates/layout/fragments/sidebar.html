@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+<div class="sidebar bg-dark page-sidebar" style="transform:translateX(0);min-width:280px;max-width:280px" th:fragment="sidebar">
+    <div class="h-100 d-flex flex-column flex-1">
+        <nav class="navbar navbar-expand-md  d-none d-lg-flex d-xl-flex bg-dark" >
+            <a href="#" class="navbar-brand">
+                <svg width="24" height="24">
+                    <use xlink:href="#logo-icon"></use>
+                </svg>
+                <span class="ml-3">Eleven</span>
+            </a>
+            <a href="javascript:;" class="nav-toggle">
+                                <span class="animated-icon">
+                                    <div
+                                            style="width:24px;height:24px"
+                                            data-animation-path="/brewer/vendor/animated-icons/menu-back/menu-back.json"
+                                            data-anim-loop="false"
+                                    ></div>
+                                </span>
+            </a>
+        </nav>
+        <ul class="d-block scroll-y flex-1 py-3 nav flex-column">
+            <div class="sidebar-item">
+                <li class="nav-item  active">
+                    <a
+                            class="nav-link d-flex align-items-center nav-link"
+                            href="index.html"
+                    >
+                                        <span class="animated-icon">
+                                            <div
+                                                    style="width:18px;height:18px"
+                                                    data-animation-path="/brewer/vendor/animated-icons/shopping-bag/shopping-bag.json"
+                                                    data-anim-loop="false"
+                                            ></div>
+                                        </span>
+                        <span class="mr-auto menu-name">Home</span>
+                    </a>
+                </li>
+            </div>
+            <div class="sidebar-item">
+                <li class="nav-item ">
+                    <a
+                            class="nav-link d-flex align-items-center nav-link"
+                            href="widgets.html"
+                    >
+                                        <span class="animated-icon">
+                                            <div
+                                                    style="width:18px;height:18px"
+                                                    data-animation-path="/brewer/vendor/animated-icons/book/book.json"
+                                                    data-anim-loop="false"
+                                            ></div>
+                                        </span>
+                        <span class="mr-auto menu-name">Widgets</span>
+                        <span class="badge badge-danger badge-pill">5</span>
+                    </a>
+                </li>
+            </div>
+            <div class="sidebar-item">
+                <li class="nav-item ">
+                    <a
+                            class="nav-link d-flex align-items-center nav-link"
+                            href="javascript:;"
+                    >
+                                        <span class="animated-icon">
+                                            <div
+                                                    style="width:18px;height:18px"
+                                                    data-animation-path="/brewer/vendor/animated-icons/folder/folder.json"
+                                                    data-anim-loop="false"
+                                            ></div>
+                                        </span>
+                        <span class="mr-auto menu-name">Bootstrap UI</span>
+                        <span class="caret">
+                                            <span class="animated-icon">
+                                                <div
+                                                        style="width:12px;height:12px"
+                                                        data-animation-path="/brewer/vendor/animated-icons/expand/expand.json"
+                                                ></div>
+                                            </span>
+                                        </span>
+                    </a>
+                    <div class="sub-menu collapse " aria-expanded="false">
+                        <ul class="nav flex-column">
+                            <li class="nav-item ">
+                                <a href="bootstrap-ui-alerts.html" class="nav-link">
+                                    <span class="mr-auto menu-name">Alerts</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a href="bootstrap-ui-badge.html" class="nav-link">
+                                    <span class="mr-auto menu-name">Badge</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a href="bootstrap-ui-buttons.html" class="nav-link">
+                                    <span class="mr-auto menu-name">Buttons</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a href="bootstrap-ui-card.html" class="nav-link">
+                                    <span class="mr-auto menu-name">Card</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a href="bootstrap-ui-carousel.html" class="nav-link">
+                                    <span class="mr-auto menu-name">Carousel</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a href="bootstrap-ui-jumbotron.html" class="nav-link">
+                                    <span class="mr-auto menu-name">Jumbotron</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a href="bootstrap-ui-list-group.html" class="nav-link">
+                                    <span class="mr-auto menu-name">List Group</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item ">
+                                <a href="bootstrap-ui-progress.html" class="nav-link">
+                                    <span class="mr-auto menu-name">Progress</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a href="bootstrap-ui-other.html" class="nav-link">
+                                    <span class="mr-auto menu-name">Other</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </div>
+            <div class="sidebar-item">
+                <li class="nav-item ">
+                    <a
+                            class="nav-link d-flex align-items-center nav-link"
+                            href="messages.html"
+                    >
+                                        <span class="animated-icon">
+                                            <div
+                                                    style="width:18px;height:18px"
+                                                    data-animation-path="/brewer/vendor/animated-icons/speech/speech.json"
+                                                    data-anim-loop="false"
+                                            ></div>
+                                        </span>
+                        <span class="mr-auto menu-name">Messages</span>
+                    </a>
+                </li>
+            </div>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
