@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/LayoutPadrao">
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+<div class="page-inner bg-light" layout:fragment="main">
+    <div class="card">
+        <div class="card-header">Dados da Categoria</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Imagem</th>
+                            <th>Acoes</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="category : ${categories}">
+                                <td th:text="${category.id}">1</td>
+                                <td th:text="${category.name}">Info</td>
+                                <td th:text="${category.image}">teste</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
