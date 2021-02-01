@@ -1,6 +1,7 @@
 package br.com.alyson.brewer.config.init;
 
 import br.com.alyson.brewer.config.DBConfig;
+import br.com.alyson.brewer.config.MetadataConfig;
 import br.com.alyson.brewer.config.ServiceConfig;
 import br.com.alyson.brewer.config.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -9,7 +10,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{DBConfig.class, ServiceConfig.class};
+        return new Class[]{DBConfig.class, ServiceConfig.class, MetadataConfig.class};
     }
 
     @Override
