@@ -1,11 +1,10 @@
 package br.com.alyson.brewer.config;
 
-import br.com.alyson.brewer.service.CategoryService;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 @Configuration
-@ComponentScan(basePackageClasses = CategoryService.class)
-public class ServiceConfig {
-
+@Import({DBConfig.class ,ServiceConfig.class, WebConfig.class})
+public class TestBeanConfig {
 }
