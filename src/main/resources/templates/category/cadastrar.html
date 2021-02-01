@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/LayoutPadrao">
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+<div class="page-inner bg-light" layout:fragment="main">
+    <div class="card">
+        <div class="card-header">Cadastro de Categoria</div>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-sm-12 col-lg-10 offset-lg-1">
+                    <div class="alert alert-success fade show" role="alert">
+                        This is a primary alert — check it out!
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <form id="form1" th:object="${category}" class="needs-validation" novalidate method="post">
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input type="text" required class="form-control" th:field="*{name}" />
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="image">Imagem</label>
+                        <input class="form-control-file" id="image" name="image" type="file" th:field="*{image}" />
+                    </div>
+
+                    <button class="btn btn-secondary">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

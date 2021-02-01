@@ -6,21 +6,41 @@
 
     <groupId>br.com.alyson</groupId>
     <artifactId>curso-brewer-algaworks</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <properties>
+        <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
         <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
         <maven.war.plugin.version>3.2.3</maven.war.plugin.version>
         <java.version>1.8</java.version>
+
+        <!-- LIBS CORE APLICAÇÃO WEB -->
         <spring.version>5.3.3</spring.version>
         <javax.servlet.api.version>4.0.1</javax.servlet.api.version>
         <thymeleaf.version>3.0.12.RELEASE</thymeleaf.version>
         <thymeleaf.layout.dialect>2.5.2</thymeleaf.layout.dialect>
 
+        <!-- LIBS CONFIGURAÇÕES DO LOG -->
         <log4j.version>2.14.0</log4j.version>
         <jcl.over.slf4j.version>1.7.30</jcl.over.slf4j.version>
         <slf4j.api.version>1.7.30</slf4j.api.version>
+
+        <!-- LIBS CONFIGURAÇÕES BANCO DE DADOS -->
+        <hibernate.version>5.4.27.Final</hibernate.version>
+        <hibernate.validator.version>6.1.7.Final</hibernate.validator.version>
+        <postgresql.version>42.2.18</postgresql.version>
+        <commons.dbcp2.version>2.8.0</commons.dbcp2.version>
+        <spring.data.jpa.version>2.4.3</spring.data.jpa.version>
+
+        <lombok.version>1.18.18</lombok.version>
+
+        <application.version>${project.version}</application.version>
+
+        <junit.version>4.13.1</junit.version>
+        <hamcrest.version>1.3</hamcrest.version>
+        <json.path.version>2.2.0</json.path.version>
+
     </properties>
 
     <dependencyManagement>
@@ -117,6 +137,83 @@
             <version>${jcl.over.slf4j.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-java8</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate.validator.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring.data.jpa.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>${commons.dbcp2.version}</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <version>${hamcrest.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>${json.path.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -139,6 +236,55 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>write-project-properties</goal>
+                        </goals>
+                        <configuration>
+                            <outputFile>${project.build.outputDirectory}/properties-from-pom.properties</outputFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-help-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>show-profiles</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>active-profiles</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>homologacao</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <application.ambiente>Servidor de Homologacao</application.ambiente>
+            </properties>
+        </profile>
+        <profile>
+            <id>producao</id>
+            <properties>
+                <application.ambiente>Servidor de Producao</application.ambiente>
+            </properties>
+        </profile>
+    </profiles>
 </project>
