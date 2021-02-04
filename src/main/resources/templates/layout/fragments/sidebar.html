@@ -68,13 +68,52 @@
                     <div class="sub-menu collapse " aria-expanded="false">
                         <ul class="nav flex-column">
                             <li class="nav-item ">
-                                <a href="bootstrap-ui-alerts.html" class="nav-link">
+                                <a th:href="@{/category/listar}" class="nav-link">
                                     <span class="mr-auto menu-name">Listar</span>
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a href="bootstrap-ui-badge.html" class="nav-link">
-                                    <span class="mr-auto menu-name">Cadastrar</span>
+                                <a th:href="@{/category/cadastrar}" class="nav-link">
+                                    <span class="mr-auto menu-name" >Cadastrar</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </div>
+            <div class="sidebar-item">
+                <li class="nav-item ">
+                    <a
+                            class="nav-link d-flex align-items-center nav-link"
+                            href="javascript:;"
+                    >
+                                        <span class="animated-icon">
+                                            <div
+                                                    style="width:18px;height:18px"
+                                                    data-animation-path="/brewer/vendor/animated-icons/folder/folder.json"
+                                                    data-anim-loop="false"
+                                            ></div>
+                                        </span>
+                        <span class="mr-auto menu-name">Produtos</span>
+                        <span class="caret">
+                                            <span class="animated-icon">
+                                                <div
+                                                        style="width:12px;height:12px"
+                                                        data-animation-path="/brewer/vendor/animated-icons/expand/expand.json"
+                                                ></div>
+                                            </span>
+                                        </span>
+                    </a>
+                    <div class="sub-menu collapse " aria-expanded="false">
+                        <ul class="nav flex-column">
+                            <li class="nav-item ">
+                                <a th:href="@{/product/listar}" class="nav-link">
+                                    <span class="mr-auto menu-name">Listar</span>
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a th:href="@{/product/cadastrar}" class="nav-link">
+                                    <span class="mr-auto menu-name" >Cadastrar</span>
                                 </a>
                             </li>
                         </ul>

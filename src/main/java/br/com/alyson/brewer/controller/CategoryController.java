@@ -2,6 +2,7 @@ package br.com.alyson.brewer.controller;
 
 import br.com.alyson.brewer.model.Category;
 import br.com.alyson.brewer.service.CategoryService;
+import br.com.alyson.brewer.service.exception.NegocioException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Marker;
@@ -42,10 +43,16 @@ public class CategoryController {
            return novo(category);
         }
 
-        categoryService.salvar(category);
-        attributes.addFlashAttribute("mensagem", "Categoria salva com sucesso");
-        LOGGER.debug("Entrou no metodo cadastrar POST" + category.getName());
-        return new ModelAndView("redirect:/category/cadastrar");
+        try{
+            categoryService.salvar(category);
+            attributes.addFlashAttribute("mensagem", "Categoria salva com sucesso");
+            LOGGER.debug("Entrou no metodo cadastrar POST" + category.getName());
+            return new ModelAndView("redirect:/category/cadastrar");
+        }catch (NegocioException e){
+            result.reject(e.getMessage(),e.getMessage());
+            return novo(category);
+        }
+
     }
 
     @RequestMapping("/listar")
