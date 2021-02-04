@@ -38,6 +38,11 @@ public class CategoryController {
     @RequestMapping(value = "/cadastrar", method = RequestMethod.POST)
     public ModelAndView cadastrar(@Valid Category category, BindingResult result, Model model, RedirectAttributes attributes){
 
+        if(result.hasErrors()){
+           return novo(category);
+        }
+
+        categoryService.salvar(category);
         attributes.addFlashAttribute("mensagem", "Categoria salva com sucesso");
         LOGGER.debug("Entrou no metodo cadastrar POST" + category.getName());
         return new ModelAndView("redirect:/category/cadastrar");

@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<div class="form-group" th:if="${#fields.hasAnyErrors()}">
+    <div class="alert alert-danger fade show" role="alert">
+        <th:block th:each="detailedError : ${#fields.detailedErrors()}">
+            <div>[[${detailedError.message}]]</div>
+        </th:block>
+    </div>
+</div>
+</html>
