@@ -34,8 +34,12 @@ public class CategoryService {
     }
 
     @Transactional
-    public void salvar(Category category){
-        if(!categoryRepository.findByName(category.getName()).isPresent())
-                categoryRepository.save(category);
+    public void salvar(Category category) throws NegocioException{
+        if(categoryRepository.findByName(category.getName()).isPresent()) {
+            throw new NegocioException("Categoria já existente");
+        }else{
+            categoryRepository.save(category);
+        }
+
     }
 }
