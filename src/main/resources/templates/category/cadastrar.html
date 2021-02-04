@@ -13,16 +13,14 @@
         <div class="card-header">Cadastro de Categoria</div>
         <div class="card-body">
 
-            <div class="row">
-                <div class="col-sm-12 col-lg-10 offset-lg-1">
-                    <div class="alert alert-success fade show" role="alert">
-                        This is a primary alert — check it out!
-                    </div>
-                </div>
-            </div>
+
 
             <div class="form-container">
-                <form id="form1" th:object="${category}" class="needs-validation" novalidate method="post">
+                <form id="form1" th:object="${category}" class="needs-validation" method="post">
+
+                    <th:block th:include="fragments/alert-danger"></th:block>
+                    <th:block th:include="fragments/alert-success"></th:block>
+
                     <div class="form-group">
                         <label>Nome</label>
                         <input type="text" required class="form-control" th:field="*{name}" />

@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<div class="form-group" th:if="${not #strings.isEmpty(mensagem)}">
+    <div class="alert alert-success fade show" role="alert">
+        <span th:text="${mensagem}"></span>
+    </div>
+</div>
+</html>
